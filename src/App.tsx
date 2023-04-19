@@ -1,12 +1,14 @@
-import React from 'react';
-import './App.css';
+import {Comments} from './components/Comments/Comments';
+import './App.css'
+import {Users} from "./components/User/Users";
 
-function App() {
-  return (
-    <div>
-
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div className='container'>
+            {/*<Comments/>*/}
+            <Users/>
+        </div>
+    );
+};
 
 export default App;
