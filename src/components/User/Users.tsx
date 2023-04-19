@@ -1,11 +1,15 @@
 import {useEffect, useState} from 'react';
 import {User} from "./User";
+import {FC} from "react";
+
+import {UserForm} from "./UserForm";
 import {service} from "../../services/service";
-
 import {IUser} from "../../interfaces/User.interface";
+interface IProps {
 
+}
 
-const Users = () => {
+const Users:FC<IProps> = () => {
     const [users, setUsers] = useState<IUser[]>([]);
 
     useEffect(() => {
@@ -15,6 +19,7 @@ const Users = () => {
 
     return (
         <div>
+            <UserForm setUsers={setUsers}/>
             {/*<CommentForm setComments={setComments}/>*/}
             <hr/>
             {users.map(user=><User user={user} key={user.id}/>)}

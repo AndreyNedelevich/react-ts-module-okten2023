@@ -6,16 +6,17 @@ interface IProps {
 }
 
 const User:FC<IProps> = ({user}) => {
-    const {id, name, email,address , phone, company, geo, website, username} = user;
-    // sun: { open: openHours, closed: closdHours }
+    const {id, name,username, email,} = user;
+
+
+
     return(
         <div className='wrapper'>
      <div>id: {id}</div>
     <div>name: {name}</div>
-    <div>phone: {phone}</div>
+    <div>username: {username}</div>
     <div>email: {email}</div>
-    <div>address: {address.city} str.{address.street} app.{address.suite}</div>
-    <div>company: {company.name}</div>
+
     </div>
 );
 };
