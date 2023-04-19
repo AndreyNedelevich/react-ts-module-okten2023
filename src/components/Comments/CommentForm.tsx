@@ -28,7 +28,7 @@ const CommentForm:FC<IProps> = ({setComments}) => {
     };
 
     return(
-        <form onSubmit={handleSubmit(save)}>
+        <form className='form'  onSubmit={handleSubmit(save)}>
             <input type="text" placeholder={'name'} {...register('name')}/>
             {errors.name && <span>{errors.name.message}</span>}
             <input type="text" placeholder={'email'} {...register('email')}/>

@@ -18,7 +18,7 @@ const Users:FC<IProps> = () => {
     }, [])
 
     return (
-        <div>
+        <div className='block'>
             <UserForm setUsers={setUsers}/>
             {/*<CommentForm setComments={setComments}/>*/}
             <hr/>

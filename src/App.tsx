@@ -1,11 +1,11 @@
 import {Comments} from './components/Comments/Comments';
 import './App.css'
-import {Users} from "./components/User/Users";
+import {Users} from "./components/Users/Users";
 
 const App = () => {
     return (
         <div className='container'>
-            {/*<Comments/>*/}
+            <Comments/>
             <Users/>
         </div>
     );

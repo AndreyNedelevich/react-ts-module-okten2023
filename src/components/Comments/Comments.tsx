@@ -15,7 +15,7 @@ const Comments = () => {
     }, [])
 
     return (
-        <div>
+        <div className='block'>
             <CommentForm setComments={setComments}/>
             <hr/>
             {comments.map(comment=><Comment comment={comment} key={comment.id}/>)}
