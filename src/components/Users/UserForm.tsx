@@ -4,7 +4,7 @@ import {FC} from "react";
 import {Dispatch, SetStateAction} from "react";
 
 
-import {service} from "../../services/service";
+import {serviceUser} from "../../services/service";
 import { UserValidator} from "../../validators/validate";
 import {IUser} from "../../interfaces/User.interface";
 
@@ -23,7 +23,7 @@ const UserForm: FC<IProps> = ({setUsers}) => {
 
 
     const save: SubmitHandler<IUser> = async (user) => {
-        const {data} = await service.createUser(user);
+        const {data} = await serviceUser.createUser(user);
         console.log(data);
         setUsers((prevState) => {
             return [...prevState, data];

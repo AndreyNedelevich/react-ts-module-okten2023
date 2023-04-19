@@ -1,4 +1,5 @@
 import {FC} from 'react';
+
 import {IComment} from "../../interfaces/Comment.interface";
 
 interface IProps {

@@ -1,12 +1,11 @@
 import {SubmitHandler, useForm} from 'react-hook-form';
-import {IComment} from "../../interfaces/Comment.interface";
 import {FC} from "react";
 import {joiResolver} from '@hookform/resolvers/joi';
 import {Dispatch, SetStateAction} from "react";
 
-import {service} from "../../services/service";
+import {serviceComment} from "../../services/service";
 import {CommentValidator} from "../../validators/validate";
-
+import {IComment} from "../../interfaces/Comment.interface";
 
 interface IProps{
     setComments:Dispatch<SetStateAction<IComment[]>>
@@ -19,7 +18,7 @@ const CommentForm:FC<IProps> = ({setComments}) => {
 
 
     const save:SubmitHandler<IComment> = async (comment) => {
-       const {data}=  await service.createComment(comment);
+       const {data}=  await serviceComment.createComment(comment);
         console.log(data);
         setComments((prevState)=>{
             return [...prevState, data];

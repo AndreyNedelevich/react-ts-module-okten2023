@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
+
 import {CommentForm} from "./CommentForm";
-import {service} from "../../services/service";
+import { serviceComment} from "../../services/service";
 import {Comment} from "./Comment";
 import {IComment} from "../../interfaces/Comment.interface";
 
@@ -11,7 +12,7 @@ const Comments = () => {
 
     useEffect(() => {
         // @ts-ignore
-        service.getAllComment().then(value => value.data).then(value => setComments(value))
+        serviceComment.getAllComment().then(value => value.data).then(value => setComments(value))
     }, [])
 
     return (
