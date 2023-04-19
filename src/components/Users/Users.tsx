@@ -13,7 +13,7 @@ const Users:FC<IProps> = () => {
     const [users, setUsers] = useState<IUser[]>([]);
 
     useEffect(() => {
-        // @ts-ignore
+
         serviceUser.getAllUser().then(value => value.data).then(value => setUsers(value))
     }, [])
 

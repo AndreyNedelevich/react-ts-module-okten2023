@@ -11,7 +11,6 @@ const Comments = () => {
     const [comments, setComments] = useState<IComment[]>([]);
 
     useEffect(() => {
-        // @ts-ignore
         serviceComment.getAllComment().then(value => value.data).then(value => setComments(value))
     }, [])
 
