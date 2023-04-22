@@ -4,3 +4,5 @@ export interface IUser {
     username: string;
     email: string;
 }
+
+//Итерфейс для User

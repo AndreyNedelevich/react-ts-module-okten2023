@@ -18,7 +18,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "strictNullChecks": false,
+//    Данная свойства означает что нам можно будет не проверять наши переменные на null наши переменные. И  это позволит любому объекту
+    // присвоить null.
   },
   "include": [
     "src"

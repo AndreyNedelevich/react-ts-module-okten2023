@@ -5,7 +5,8 @@ import {urls} from '../constants/urls';
 
 const userService = {
     getAll: (): IRes<IUser[]> => axiosService.get(urls.users.users),
-    getById: (id: string): IRes<IUser> => axiosService.get(urls.users.byId(id))
+    //Типизируем в сервисе указав тип IRes (это Promise<AxiosResponse<T>> буква T это джейнерик в него помещаеться инерфейс IUser[])
+getById: (id: string): IRes<IUser> => axiosService.get(urls.users.byId(id))
 }
 
 export {
