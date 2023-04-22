@@ -1,6 +1,12 @@
-import React from 'react';
+import React, {FC} from 'react';
+import {ITodos} from "../../interface/allInterface";
 
-const Todo = ({todo}) => {
+interface IProps {
+    todo: ITodos;
+}
+
+
+const Todo:FC<IProps> = ({todo}) => {
     const {id,title,completed}=todo
     return (
         <div>
