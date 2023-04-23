@@ -1,6 +1,8 @@
 import React from 'react';
-import {IAlbum} from "../../interface/allInterface";
 import {FC} from "react";
+
+import {IAlbum} from "../../interface/allInterface";
+
 
 interface IProps {
     album: IAlbum;
@@ -9,7 +11,7 @@ interface IProps {
 const Album:FC<IProps> = ({album}) => {
 
     return (
-        <div>
+        <div className='wrapper'>
             <h4>{album.id}) {album.title}</h4>
         </div>
     );

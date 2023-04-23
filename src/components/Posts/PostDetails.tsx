@@ -1,7 +1,8 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
+
 import {IPost} from "../../interface/allInterface";
-import {userService} from "../../service/post.service";
+import {PostService} from "../../service/post.service";
 
 
 const PostDetails: FC = () => {
@@ -10,12 +11,12 @@ const PostDetails: FC = () => {
     let [post, setPost] = useState<IPost>(null);
 
     useEffect(() => {
-        userService.getByIdPost(id).then(value => value.data).then(value => setPost(value));
+        PostService.getByIdPost(id).then(value => value.data).then(value => setPost(value));
         console.log('effect')
     }, [id]);
 
     return (
-        <div>
+        <div className='postInfo'>
             {
                 post &&
                 <div>

@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {Outlet} from "react-router-dom";
+
 import {IPost} from "../../interface/allInterface";
-import {userService} from "../../service/post.service";
+import {PostService} from "../../service/post.service";
 import Post from "./Post";
 
 const Posts = () => {
     let [posts, setPosts] = useState<IPost[]>([]);
 
     useEffect(() => {
-        userService.getAll().then(value => value.data).then(value => setPosts(value));
+        PostService.getAll().then(value => value.data).then(value => setPosts(value));
     }, [])
 
     return (
