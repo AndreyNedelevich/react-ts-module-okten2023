@@ -8,7 +8,9 @@ import {carActions} from '../redux';
 const CarForm: FC = () => {
     const {reset, handleSubmit, register, setValue} = useForm<ICar>();
     const dispatch = useAppDispatch();
+    //Используем кастомный хук useAppDispatch()  так как внутри него уже находитьмя протипизированный  хук usDispatch()
     const {carForUpdate} = useAppSelector(state => state.carReducer);
+    //Используем кастомный хук useAppSelector так как внутри него уже находитьмя протипизированный  хук useSellector()
 
     useEffect(() => {
         if (carForUpdate) {
@@ -18,6 +20,7 @@ const CarForm: FC = () => {
         }
     }, [carForUpdate, setValue])
     const save: SubmitHandler<ICar> = async (car) => {
+        // Пи помощи SubmitHandler и передачи в ее джейнерик интефейс того объекта который мы должны получить из формы.
         await dispatch(carActions.create({car}))
         reset()
     };
