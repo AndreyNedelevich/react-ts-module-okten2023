@@ -6,6 +6,7 @@ const urls = {
     cars: {
         cars,
         byId: (id: number): string => `${cars}/${id}`
+    //     Функция возвращает строку и как аргумент получает тип number
     }
 }
 

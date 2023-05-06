@@ -9,7 +9,9 @@ import {setupStore} from './redux';
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
+
 const store = setupStore();
+//Вызываем функцию setupStore() которая просто возвращает наше хранилие созданное при помощи метода configeStore
 
 root.render(
     <Provider store={store}>
