@@ -5,14 +5,14 @@ export interface IUser{
     email:string,
 }
 
-export interface IPosts{
+export interface IPost{
 userId:number,
     id:number,
     title:string,
     body:string
 }
 
-export interface IAlbom{
+export interface IAlbum{
     id:number,
     title:string
 }
