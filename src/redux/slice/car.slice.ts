@@ -81,6 +81,8 @@ const slice = createSlice({
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
+                //Так как а ответ получаем в action.payload объект с данными. И эти данные необходимо разложить в переменные состояния
+                //используем диструктиризацию и далее раздаживаем в переменные внутри хранилища.
                 const {prev, next, items} = action.payload;
                 state.cars = items
                 state.prev = prev

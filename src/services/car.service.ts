@@ -4,6 +4,7 @@ import {axiosService} from './axios.service';
 import {urls} from '../constants';
 
 class CarService {
+    //При запросе на всех типизируем ответ при помощи interface IPagination а вего джейнерик переденм типизауию массива с объектами IPagination<ICar[]>
     getAll(): IRes<IPagination<ICar[]>> {
         return axiosService.get(urls.cars.cars)
     }

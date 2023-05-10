@@ -10,11 +10,16 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const {handleSubmit, register, formState: {isValid}} = useForm<IAuth>();
 
+
     const login: SubmitHandler<IAuth> = async (user) => {
         const {meta: {requestStatus}} = await dispatch(authActions.login(user));
-
+        //Внутри функции вызваем  dispatch и передаем в него asynkThank login с данными пользователя в аккаунт которого хоти войти.
+        //Далее после отправки запросса на авторизацию. Создаем логику если запрос был успешен то в  ответ веренться requestStatus
+        // "fulfilled", если зпрос не рузультативный то вернеться "rejected"
+        //Из самого dispatch используем meta и из нее можно вытянуть requestStatus (с результатом запроса)
         if (requestStatus === 'fulfilled') {
             navigate('/cars')
+            //ЕСли запрос был успешен то делаем навигацию на страницу с Cars
         }
     };
 
