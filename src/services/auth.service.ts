@@ -43,12 +43,10 @@ class AuthService {
         }
             const {data}: AxiosResponse<ITokens> = await axiosService.post(urls.auth.refresh, {refresh: refreshToken});
             //Отправляем запрос на адресс auth.refres для получения новых
-            this.setTokens(data)
+        console.log(data);
+        this.setTokens(data)
             //После отправки запроса на адресс на refresh и получения данных с новыми токенами. Вызываем метод внутри класса
             //setTokens (который кладет новые токенны в LocalStorage)
-
-
-
     }
 
     //Метод me при отправке запросса будет возвращать методом get нформацию о залогиненном пользователе (его данные)
