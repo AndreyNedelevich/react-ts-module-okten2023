@@ -1,25 +1,21 @@
-import { FC, useEffect } from "react";
+import {FC} from 'react';
 
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { Car } from "./Car";
-import { carActions } from "../redux";
-import React from "react";
+import {ICar} from '../interfaces/car.interface';
+import {Car} from './Car';
+import {IUseState} from '../types/useState.type';
 
-const Cars: FC = () => {
-  const { cars, trigger } = useAppSelector((state) => state.carReducer);
-  const dispatch = useAppDispatch();
+interface IProps {
+    cars: ICar[];
+    setCarForUpdate: IUseState<ICar | null>;
+    setOnChange: IUseState<boolean>
+}
 
-  useEffect(() => {
-    dispatch(carActions.getAll());
-  }, [dispatch, trigger]);
-
-  return (
-    <div>
-      {cars.map((car) => (
-        <Car key={car.id} car={car} />
-      ))}
-    </div>
-  );
+const Cars: FC<IProps> = ({cars, setCarForUpdate, setOnChange}) => {
+    return (
+        <div>
+            {cars.map(car => <Car key={car.id} car={car} setCarForUpdate={setCarForUpdate} setOnChange={setOnChange}/>)}
+        </div>
+    );
 };
 
-export { Cars };
+export {Cars};

@@ -1,25 +1,28 @@
-import {Navigate, Route, Routes} from 'react-router-dom';
+import {useState} from 'react';
 
-import {MainLayout} from './layouts';
-import {CarPage, LoginPage, RegisterPage} from './pages';
-import {RequiredAuth} from "./hoc";
+import {PageEnum} from './constants/page.enum';
+import {UserPage} from './pages/UserPage';
+import {CommentPage} from './pages/CommentPage';
+import {CarPage} from './pages/CarPage';
+import {Header} from './components/Header/Header';
 
 const App = () => {
+    const [choice, setChoice] = useState<PageEnum>(PageEnum.USERS);
+    //Состояние по которому будет отображать определенная страница а экране. По дефолту в нее передаем созданный в файле
+    //pageEnum страницы где ключт это название страниц а значение числа(при необходимости их можно переопределять)
+    // Переменная PageEnum имеют типизацию по дефолту.
+
+    console.log(choice);
     return (
-        <Routes>
-            <Route path={'/'} element={<MainLayout/>}>
-                <Route index element={<Navigate to={'login'}/>}/>
-                <Route path={'login'} element={<LoginPage/>}/>
-                <Route path={'register'} element={<RegisterPage/>}/>
-                {/*При роуте на cars делаем проверку в комопненте RequiredAuth если внутри проверка дает что пользователь
-                авторизован то попадаем на cars если нет то происходит перенос в комопнент Login*/}
-                <Route path={'cars'} element={
-                    <RequiredAuth>
-                        <CarPage/>
-                    </RequiredAuth>
-                }/>
-            </Route>
-        </Routes>
+        <div>
+            <Header setChoice={setChoice}/>
+            {choice === PageEnum.USERS && <UserPage/>}
+            {choice === PageEnum.COMMENTS && <CommentPage/>}
+            {choice === PageEnum.CARS && <CarPage/>}
+        {/*    Прописываем логику при которой та или другая страница должна показываться. В комопненте App в переменной choice
+        при нажатии на кнопку page будет изменяться значения индекса. Далее если определенное  выражение **choice === PageEnum.USERS** даст true
+        будет отображенна та или другая страница.*/}
+        </div>
     );
 };
 
