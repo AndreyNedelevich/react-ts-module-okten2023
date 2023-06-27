@@ -1,0 +1,41 @@
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.block{
+    padding: 10px;
+    border: 2px solid black;
+}
+
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+    border-bottom: 4px solid blue;
+    margin-bottom: 20px;
+    width: 700px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 600px;
+}
+
+.form>input{
+    height: 25px;
+    width: 70%;
+}
+.form>button{
+    height: 30px;
+    width: 50%;
+    font-size: 15px;
+    color: black;
+    border: 3px solid darkgrey;
+}
