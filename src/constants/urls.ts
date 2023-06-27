@@ -1,25 +1,26 @@
-const placeBaseURL = 'https://jsonplaceholder.typicode.com/'
-const carsBaseURL = 'http://owu.linkpc.net/carsAPI/v1'
+const baseURL = 'http://owu.linkpc.net/carsAPI/v2'
 
-//Разделяем комопненты свои и библиотечные.
-const users = '/users'
-const comments = '/comments'
 const cars = '/cars'
-
+const auth = '/auth'
 const urls = {
-    carAPI: {
+    cars: {
         cars,
         byId: (id: number): string => `${cars}/${id}`
     },
-    placeAPI: {
-        users,
-        comments
+    //Создаем отдельный объект auth внутри один объект с полями для:
+    auth: {
+        register: '/users',
+        //Запросс с  регистрацией
+        login: auth,
+        // Зпрос с отправкой данных для входа в акаунт пользователя.
+        refresh: `${auth}/refresh`,
+        // Метод refresh вернет строку на которую можно отправить запрос и в ответ получить обновленные токенны.
+        me: `${auth}/me`
+        //Метод me будет возвращать информацию о пользователе аккаунта его данные.
     }
 }
 
 export {
-    placeBaseURL,
-    carsBaseURL,
+    baseURL,
     urls
 }
-
