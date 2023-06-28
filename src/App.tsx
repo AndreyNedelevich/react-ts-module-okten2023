@@ -1,12 +1,9 @@
-import {Comments} from './components/Comments/Comments';
-import './App.css'
-import {Users} from "./components/Users/Users";
+import {Cars} from './components/Cars';
 
 const App = () => {
     return (
-        <div className='container'>
-            <Comments/>
-            <Users/>
+        <div>
+            <Cars/>
         </div>
     );
 };
